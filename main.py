@@ -7,7 +7,7 @@ from modules.getData import get_data
 from modules.timeDomain import *
 from modules.frequencyDomain import *
 from modules.mfcc import *
-from modules.timeFreqDomain import getSpectogram
+from modules.timeFreqDomain import *
 
 # Get the audio files from folder
 parent_folder = "dataset/"
@@ -65,8 +65,6 @@ if __name__ == '__main__':
                     # Mengambil data audio
                     audio_data, sampling_rate = get_data(aud_path)
 
-                    fig_all, ax = plt.subplots(3, 1, figsize=(25, 30))
-
                     # Melakukan time domain
                     # 1. amplitude-time representation
                     st.write(f"#### 1. Amplitude-Time Representation")
@@ -88,7 +86,6 @@ if __name__ == '__main__':
                     fig_silenceRatio, silenceRatio = getSilenceRatio(audio_data, sampling_rate)
                     st.write(f"###### Silence Ratio : " + str(silenceRatio))
                     st.pyplot(fig_silenceRatio)
-
 
                     # Melakukan frequency domain
                     # 1. sound spectrum representation
